@@ -1,0 +1,54 @@
+{
+	"name": "ronald-file-viewer",
+	"displayName": "Ronald File Viewer",
+	"description": "VisualStudio Code table view for ronald files",
+	"icon": "media/icon.jpg",
+	"version": "0.1.0",
+	"publisher": "AnTu2702",
+	"private": false,
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/AnTu2702/vscode-ronald-extension"
+	},
+	"engines": {
+		"vscode": "^1.52.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCustomEditor:ronaldFileViewer.ronald"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"customEditors": [
+			{
+				"viewType": "ronaldFileViewer.ronald",
+				"displayName": "Ronald Viewer",
+				"selector": [
+					{
+						"filenamePattern": "*.ronald"
+					}
+				]
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint . --ext .ts,.tsx",
+		"watch": "tsc -w -p ./"
+	},
+	"dependencies": {
+		"@types/node": "^12.12.0",
+		"@types/vscode": "^1.52.0",
+		"@typescript-eslint/eslint-plugin": "^4.16.0",
+		"@typescript-eslint/parser": "^4.16.0",
+		"eslint": "^7.21.0",
+		"install": "^0.13.0",
+		"npm": "^8.3.0",
+		"typescript": "^4.4.3",
+		"js-yaml": "^4.1.0"
+	}
+}

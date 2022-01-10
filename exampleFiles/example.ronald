@@ -1,0 +1,279 @@
+common:
+   configVersion: "21"
+   stpPriority: "32768"
+   location: "XU"
+vlans:
+   - id: "11"
+     name: "VLAN-11"
+     priority: "7"
+     dhcpClient: False
+     dhcpServer: True
+     dhcpIgnoredPorts: [17,18,22]
+     dhcpPool:
+        name: "VLAN-11-Pool"
+        lower: 172.17.{{ config.IP_CONFIG.VLAN11_ADDR }}.194
+        upper: 172.17.{{ config.IP_CONFIG.VLAN11_ADDR }}.194
+        leasetime: 3600
+     hostIp: 172.17.{{ config.IP_CONFIG.VLAN11_ADDR }}.2
+   - id: "12"
+     name: "VLAN-12"
+     priority: "6"
+     dhcpClient: True
+     dhcpServer: False
+     dhcpIgnoredPorts: []
+     dhcpPool: null
+     hostIp: null
+   - id: "18"
+     name: "VLAN-18"
+     priority: "5"
+     dhcpClient: False
+     dhcpServer: True
+     dhcpIgnoredPorts: [17,18,22]
+     dhcpPool:
+        name: "VLAN-18-Pool"
+        lower: 172.17.{{ config.IP_CONFIG.VLAN18_ADDR }}.1
+        upper: 172.17.{{ config.IP_CONFIG.VLAN18_ADDR }}.254
+        leasetime: 900
+     hostIp: 172.17.{{ config.IP_CONFIG.VLAN18_ADDR }}.31
+   - id: "19"
+     name: "VLAN-19"
+     priority: "4"
+     dhcpClient: False
+     dhcpServer: True
+     dhcpIgnoredPorts: [17,18,22]
+     dhcpPool:
+        name: "VLAN-19-Pool"
+        lower: 172.17.{{ config.IP_CONFIG.VLAN19_ADDR }}.1
+        upper: 172.17.{{ config.IP_CONFIG.VLAN19_ADDR }}.254
+        leasetime: 900
+     hostIp: 172.17.{{ config.IP_CONFIG.VLAN19_ADDR }}.31
+   - id: "110"
+     name: "VLAN-110"
+     priority: "3"
+     dhcpClient: False
+     dhcpServer: True
+     dhcpIgnoredPorts: [17,18,22]
+     dhcpPool:
+        name: "VLAN-110-Pool"
+        lower: 172.17.{{ config.IP_CONFIG.VLAN110_ADDR }}.1
+        upper: 172.17.{{ config.IP_CONFIG.VLAN110_ADDR }}.254
+        leasetime: 900
+     hostIp: 172.17.{{ config.IP_CONFIG.VLAN110_ADDR }}.31
+   - id: "112"
+     name: "VLAN-112"
+     priority: "2"
+     dhcpClient: False
+     dhcpServer: True
+     dhcpIgnoredPorts: [17,18,22]
+     dhcpPool:
+        name: "VLAN-112-Pool"
+        lower: 172.17.{{ config.IP_CONFIG.VLAN112_ADDR }}.1
+        upper: 172.17.{{ config.IP_CONFIG.VLAN112_ADDR }}.254
+        leasetime: 900
+     hostIp: 172.17.{{ config.IP_CONFIG.VLAN112_ADDR }}.31
+   - id: "1200"
+     name: "VLAN-1200"
+     priority: "3"
+     dhcpClient: False
+     dhcpServer: False
+     dhcpIgnoredPorts: []
+     dhcpPool: null
+     hostIp: null
+   - id: "1218"
+     name: "VLAN-1218"
+     priority: "1"
+     dhcpClient: False
+     dhcpServer: False
+     dhcpIgnoredPorts: []
+     dhcpPool: null
+     hostIp: null
+   - id: "1219"
+     name: "VLAN-1219"
+     priority: "2"
+     dhcpClient: False
+     dhcpServer: False
+     dhcpIgnoredPorts: []
+     dhcpPool: null
+     hostIp: null
+   - id: "1220"
+     name: "VLAN-1220"
+     priority: "3"
+     dhcpClient: False
+     dhcpServer: False
+     dhcpIgnoredPorts: []
+     dhcpPool: null
+     hostIp: null
+ports:
+   - number: "1"
+     disabled: False
+     stpEnabled: False
+     poeEnabled: True
+     speed: 'auto'
+     type: 'trunk'
+     daisychain: False
+     connections:
+      - applicationId: "0"
+        subId: "6"
+        deviceId: "2"
+        locationId: "XU"
+        vlanIds: [11]
+        tagged: True
+        description: "Management VLAN-11"
+      - applicationId: null
+        subId: null
+        deviceId: null
+        locationId: null
+        vlanIds: [12]
+        tagged: True
+        description: "Management VLAN-12" 
+      - applicationId: "1"
+        subId: "6"
+        deviceId: "2"
+        locationId: "XU"
+        vlanIds: [18]
+        tagged: True
+        description: "Application VLAN-18"
+      - applicationId: "2"
+        subId: "6"
+        deviceId: "2"
+        locationId: "XU"
+        vlanIds: [19]
+        tagged: True
+        description: "Application VLAN-19"
+      - applicationId: "4"
+        subId: "6"
+        deviceId: "2"
+        locationId: "XU"
+        vlanIds: [110]
+        tagged: True
+        description: "Application VLAN-110"
+      - applicationId: "6"
+        subId: "6"
+        deviceId: "2"
+        locationId: "XU"
+        vlanIds: [112]
+        tagged: True
+        description: "Application VLAN-112"
+   - number: "9"
+     disabled: False
+     stpEnabled: False
+     poeEnabled: False
+     speed: 'auto'
+     type: 'access'
+     daisychain: True
+     connections:
+      - applicationId: "1"
+        subId: "0"
+        deviceId: "5"
+        locationId: "U6"
+        vlanIds: [18]
+        tagged: False
+        clientId: "myClient1"
+        description: "Device 1"
+      - applicationId: "1"
+        subId: "0"
+        deviceId: "7"
+        locationId: "U4"
+        vlanIds: [18]
+        tagged: False
+        clientId: "myClient2"
+        description: "Device 2"
+      - applicationId: "1"
+        subId: "0"
+        deviceId: "9"
+        locationId: "O2"
+        vlanIds: [18]
+        tagged: False
+        clientId: "myClient3"
+        description: "Device 3"
+   - number: "12"
+     disabled: False
+     stpEnabled: False
+     poeEnabled: False
+     speed: 'auto'
+     type: 'access'
+     daisychain: False
+     connections:
+      - applicationId: "1"
+        subId: "5"
+        deviceId: "1"
+        locationId: "O9"
+        vlanIds: [18]
+        tagged: False
+        description: "Device 4"
+   - number: "17"
+     disabled: False
+     stpEnabled: True
+     poeEnabled: False
+     speed: 'auto'
+     type: 'trunk'
+     daisychain: False
+     connections:
+      - applicationId: null
+        subId: null
+        deviceId: null
+        locationId: null
+        vlanIds: [11,12,18,19,110,112,1200,1218,1219,1220]
+        tagged: True
+        description: "Trunk"
+   - number: "18"
+     disabled: False
+     stpEnabled: True
+     poeEnabled: False
+     speed: 'auto'
+     type: 'trunk'
+     daisychain: False
+     connections:
+      - applicationId: null
+        subId: null
+        deviceId: null
+        locationId: null
+        vlanIds: [11,12,18,19,110,112,1200,1218,1219,1220]
+        tagged: True
+        description: "Trunk"
+   - number: "19"
+     disabled: False
+     stpEnabled: False
+     poeEnabled: True
+     speed: 'auto'
+     type: 'trunk'
+     daisychain: False
+     connections:
+      - applicationId: null
+        subId: null
+        deviceId: null
+        locationId: "O1"
+        vlanIds: [1200]
+        tagged: False
+        description: "Device 7"
+      - applicationId: null
+        subId: null
+        deviceId: null
+        locationId: "O1"
+        vlanIds: [1218]
+        tagged: True
+        disabled: False
+        description: "Device 7"
+      - applicationId: null
+        subId: null
+        deviceId: null
+        locationId: "O1"
+        vlanIds: [1219]
+        tagged: True
+        disabled: False
+        description: "Device 7"
+   - number: "22"
+     disabled: False
+     stpEnabled: True
+     poeEnabled: False
+     speed: 'auto'
+     type: 'trunk'
+     daisychain: False
+     connections:
+      - applicationId: null
+        subId: null
+        deviceId: null
+        locationId: null
+        vlanIds: [11,12,18,19,110,112,1200,1218,1219,1220]
+        tagged: True
+        description: "Trunk"
