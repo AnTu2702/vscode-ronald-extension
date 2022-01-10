@@ -16,7 +16,7 @@ export class RonaldEditorProvider implements vscode.CustomTextEditorProvider {
 		return providerRegistration;
 	}
 
-	private static readonly viewType = 'ronaldCustoms.ronald';
+	private static readonly viewType = 'ronaldFileViewer.ronald';
 
 	constructor(
 		private readonly context: vscode.ExtensionContext
