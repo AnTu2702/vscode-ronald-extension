@@ -23,7 +23,6 @@
 	function appendTableCell(/** @type {HTMLTableRowElement} */ row, /** @type {string} */ text) {
 
 		const td = document.createElement('td');
-		td.className = 'cell100 column1';
 		row.appendChild(td);
 		td.innerHTML = text;
 	}
