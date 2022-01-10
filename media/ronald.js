@@ -114,7 +114,6 @@
 		const tbody = document.createElement('tbody');
 		table.appendChild(tbody);
 
-
 		const tr = document.createElement('tr');
 		tbody.appendChild(tr);
 
