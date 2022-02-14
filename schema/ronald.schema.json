@@ -1,0 +1,146 @@
+{
+  "common": {
+    "type": "dict",
+    "schema": {
+      "configVersion": {
+        "type": "string"
+      },
+      "stpPriority": {
+        "type": "string"
+      },
+      "location": {
+        "type": "string"
+      },
+      "patchReason": {
+        "type": "string"
+      }
+    }
+  },
+  "vlans": {
+    "type": "list",
+    "schema": {     
+      "type": "dict",
+      "schema": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string",
+        },
+        "dhcpClient": {
+          "type": "boolean"
+        },
+        "dhcpServer": {
+          "type": "boolean"
+        },
+        "dhcpIgnoredPorts": {
+          "type": "list",
+          "schema": {  
+            "type": "integer"
+          }
+        },
+        "dhcpPool": {
+          "type": "dict",
+          "nullable": True,
+          "schema": {
+            "name": {
+              "type": "string"
+            },
+            "lower": {
+              "type": "string",
+              "nullable": True
+            },
+            "upper": {
+              "type": "string",
+              "nullable": True
+            },
+            "leasetime": {
+              "type": "integer"
+            }
+          }
+        },
+        "hostIp": {
+          "type": "string",
+          "nullable": True
+        }
+      }
+    }
+  },
+  "ports": {
+    "type": "list",
+    "schema": {  
+      "type": "dict",
+      "schema": {
+        "number": {
+          "type": "string"
+        },
+        "tagged": {
+          "type": "boolean"
+        },
+        "disabled": {
+          "type": "boolean"
+        },
+        "stpEnabled": {
+          "type": "boolean"
+        },
+        "poeEnabled": {
+          "type": "boolean"
+        },
+        "speed": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "daisychain": {
+          "type": "boolean"
+        },
+        "connections": {
+          "type": "list",
+          "schema": {
+            "type": "dict",
+            "schema": {
+              "applicationId": {
+                "type": "string",
+                "nullable": True
+              },
+              "subId": {
+                "type": "string",
+                "nullable": True
+              },
+              "deviceId": {
+                "type": "string",
+                "nullable": True
+              },
+              "locationId": {
+                "type": "string",
+                "nullable": True
+              },
+              "vlanIds": {
+                "type": "list",
+                "schema": {  
+                    "type": "integer"
+                  }
+              },
+              "tagged": {
+                "type": "boolean"
+              },
+              "clientId": {
+                "type": "string"
+              },
+              "disabled": {
+                "type": "boolean"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
